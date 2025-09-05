@@ -5,6 +5,7 @@ import { YStack, Paragraph } from 'tamagui'
 
 import { SakuhinInfo, getItems, deleteItem } from '../utils/galleryUtils'
 
+import MessageModal from '@/components/MessageModal'
 import RandomPaperBackground from '@/components/RandomPaperBackground'
 import SakuhinDeleteModal from '@/components/SakuhinDeleteModal'
 import SakuhinImage from '@/components/SakuhinImage'
@@ -14,24 +15,22 @@ export default function Page() {
   const [myItems, setMyItems] = useState<SakuhinInfo[]>([])
   const [sakuhinInfoModalVisible, setSakuhinInfoModalVisible] = useState(false)
   const [sakuhinDeleteModalVisible, setSakuhinDeleteModalVisible] = useState(false)
+  const [actionResultModalVisible, setActionResultModalVisible] = useState(false)
   const [selectedItem, setSelectedItem] = useState<SakuhinInfo | null>(null)
+  const [actionResult, setActionResult] = useState<string | null>(null)
 
   useFocusEffect(
     useCallback(() => {
-      getItems().then((items) => setMyItems(items))
+      getItems()
+        .then((items) => setMyItems(items))
+        .catch((e) => {
+          setMyItems([])
+          setActionResult(e.message)
+          setActionResultModalVisible(true)
+        })
       return () => {}
     }, []),
   )
-
-  const showInfo = (sakuhin: SakuhinInfo) => {
-    setSelectedItem(sakuhin)
-    setSakuhinInfoModalVisible(true)
-  }
-
-  const showDeleteModal = (sakuhin: SakuhinInfo) => {
-    setSelectedItem(sakuhin)
-    setSakuhinDeleteModalVisible(true)
-  }
 
   return (
     <YStack backgroundColor={'$background'} flex={1} justifyContent="center" alignItems="center" paddingTop={30}>
@@ -55,8 +54,14 @@ export default function Page() {
                 <SakuhinImage
                   imageUri={item.uri}
                   frameType={item.frameType}
-                  onPressFunc={() => showInfo(item)}
-                  onLongPressFunc={() => showDeleteModal(item)}
+                  onPressFunc={() => {
+                    setSelectedItem(item)
+                    setSakuhinInfoModalVisible(true)
+                  }}
+                  onLongPressFunc={() => {
+                    setSelectedItem(item)
+                    setSakuhinDeleteModalVisible(true)
+                  }}
                 />
               </RandomPaperBackground>
             )}
@@ -73,10 +78,27 @@ export default function Page() {
         sakuhin={selectedItem}
         onClose={() => setSakuhinDeleteModalVisible(false)}
         deleteFunc={() =>
-          deleteItem(selectedItem).then(() => {
-            getItems().then((items) => setMyItems(items))
-          })
+          deleteItem(selectedItem)
+            .then(() => {
+              getItems().then((items) => setMyItems(items))
+              setSakuhinDeleteModalVisible(false)
+              setActionResult('さくじょにせいこうしました')
+              setActionResultModalVisible(true)
+            })
+            .catch((e) => {
+              setSakuhinDeleteModalVisible(false)
+              setActionResult(e.message)
+              setActionResultModalVisible(true)
+            })
         }
+      />
+      <MessageModal
+        visible={actionResultModalVisible}
+        message={actionResult}
+        onClose={() => {
+          setActionResult(null)
+          setActionResultModalVisible(false)
+        }}
       />
     </YStack>
   )

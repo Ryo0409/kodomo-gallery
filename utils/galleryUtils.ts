@@ -36,22 +36,20 @@ export const getItems = async (): Promise<SakuhinInfo[]> => {
       .filter((item): item is SakuhinInfo => item !== null)
 
     return sakuhinInfo
-  } catch (error) {
-    console.error('AsyncStorage error:', error)
-    return []
+  } catch {
+    throw new Error('さくひんのしゅとくにしっぱいしました')
   }
 }
 
 export const deleteItem = async (sakuhin: SakuhinInfo | null): Promise<void> => {
   if (!sakuhin) {
-    console.error('deleteItem: sakuhin is null')
-    return
+    throw new Error('さくひんのさくじょにしっぱいしました')
   }
   try {
     await FileSystem.deleteAsync(sakuhin.uri, { idempotent: true })
     await AsyncStorage.removeItem(sakuhin.key)
-  } catch (error) {
-    console.error('Error deleting item:', error)
+  } catch {
+    throw new Error('さくひんのさくじょにしっぱいしました')
   }
 }
 
@@ -72,7 +70,7 @@ export const uploadItem = async (
 
   try {
     await FileSystem.copyAsync({ from: uri, to: destinationUri })
-  } catch (e) {
+  } catch {
     throw new Error('さくひんのほぞんにしっぱいしました')
   }
 
