@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "garally",
+    "name": "kodomo-gallery",
     "slug": "garally",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "garally",
+    "scheme": "kodomogallery",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
