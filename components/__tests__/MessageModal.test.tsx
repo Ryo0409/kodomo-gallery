@@ -1,6 +1,5 @@
 import { defaultConfig } from '@tamagui/config/v4'
 import { render, fireEvent } from '@testing-library/react-native'
-import React, { useState } from 'react'
 import { TamaguiProvider, createTamagui } from 'tamagui'
 
 import { themes } from '../../themes/themes'
