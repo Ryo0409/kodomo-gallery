@@ -1,29 +1,40 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { useFonts } from 'expo-font';
-import { Stack } from 'expo-router';
-import { StatusBar } from 'expo-status-bar';
-import 'react-native-reanimated';
+import FontAwesome5 from '@expo/vector-icons/FontAwesome5'
+import { defaultConfig } from '@tamagui/config/v4'
+import { Tabs } from 'expo-router'
+import { createTamagui, TamaguiProvider } from 'tamagui'
 
-import { useColorScheme } from '@/hooks/useColorScheme';
+import { themes } from '../themes/themes'
 
-export default function RootLayout() {
-  const colorScheme = useColorScheme();
-  const [loaded] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
-  });
+const config = createTamagui({
+  ...defaultConfig,
+  themes,
+})
 
-  if (!loaded) {
-    // Async font loading only occurs in development.
-    return null;
-  }
-
+export default function Layout() {
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
-      </Stack>
-      <StatusBar style="auto" />
-    </ThemeProvider>
-  );
+    <TamaguiProvider config={config}>
+      <Tabs screenOptions={{ headerShown: false, tabBarActiveTintColor: '#e88121', tabBarInactiveTintColor: '#555' }}>
+        <Tabs.Screen
+          name="index"
+          options={{
+            title: 'ぎゃらりー',
+            tabBarShowLabel: false,
+            tabBarIcon: ({ color, size }) => (
+              <FontAwesome5 name="landmark" color={color} size={size} style={{ marginTop: 5 }} />
+            ),
+          }}
+        />
+        <Tabs.Screen
+          name="upload"
+          options={{
+            title: 'とうこう',
+            tabBarShowLabel: false,
+            tabBarIcon: ({ color, size }) => (
+              <FontAwesome5 name="plus-square" color={color} size={size} style={{ marginTop: 5 }} />
+            ),
+          }}
+        />
+      </Tabs>
+    </TamaguiProvider>
+  )
 }
