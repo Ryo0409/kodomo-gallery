@@ -1,50 +1,66 @@
-# Welcome to your Expo app 👋
+# こどもギャラリーアプリ
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+このアプリは、子どもたちの作品をスマホやタブレットで楽しく管理・展示できるギャラリーアプリです。  
+Expo + React Native + Tamagui を使って開発されています。
 
-## Get started
+---
 
-1. Install dependencies
+## 🚀 セットアップ
+
+1. 依存パッケージのインストール
 
    ```bash
    npm install
    ```
 
-2. Start the app
+2. アプリの起動
 
    ```bash
    npx expo start
    ```
 
-In the output, you'll find options to open the app in a
+   ターミナルの案内に従って、
+   - iOSシミュレータ
+   - Androidエミュレータ
+   - 実機（Expo Goアプリ）  
+     で動作確認できます。
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+---
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## 📁 ディレクトリ構成
 
-## Get a fresh project
+- `app/` ... 画面・ルーティング
+- `components/` ... UIコンポーネント
+- `utils/` ... ユーティリティ関数
+- `assets/` ... 画像・アイコンなど
 
-When you're ready, run:
+---
 
-```bash
-npm run reset-project
-```
+## 🖼️ 主な機能
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+- 作品画像のアップロード・保存
+- 作品タイトル・作者・解説の登録
+- ギャラリー表示（額縁・紙風の背景つき）
+- 作品の削除・詳細表示
+- タブ切り替えによる「ギャラリー」「投稿」画面
 
-## Learn more
+---
 
-To learn more about developing your project with Expo, look at the following resources:
+## 💡 開発メモ
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+- [Expo公式ドキュメント](https://docs.expo.dev/)
+- [Tamagui公式ドキュメント](https://tamagui.dev/docs/intro)
+- [React Native公式](https://reactnative.dev/)
 
-## Join the community
+---
 
-Join our community of developers creating universal apps.
+## 👫 コミュニティ
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- [Expo GitHub](https://github.com/expo/expo)
+- [Expo Discord](https://chat.expo.dev)
+
+---
+
+## 📝 ライセンス
+
+MIT
