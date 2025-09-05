@@ -2,9 +2,9 @@ import { useState } from 'react'
 import 'react-native-get-random-values'
 import { XStack, YStack, Input, Paragraph, Button } from 'tamagui'
 
-import UploadModal from '../components/UploadModal'
 import { uploadItem, pickItemImage } from '../utils/galleryUtils'
 
+import MessageModal from '@/components/MessageModal'
 import RandomPaperBackground from '@/components/RandomPaperBackground'
 import SakuhinImage from '@/components/SakuhinImage'
 import SakuhinImagePickModal from '@/components/SakuhinImagePickModal'
@@ -17,7 +17,7 @@ export default function Page() {
   const [frameType, setFrameType] = useState<'square' | 'rectangle' | null>(null)
 
   const [uploadResult, setUploadResult] = useState<string | null>(null)
-  const [sakuhinUploadModalVisible, setSakuhinUploadModalVisible] = useState(false)
+  const [sakuhinUploadResultModalVisible, setSakuhinUploadResultModalVisible] = useState(false)
   const [sakuhinImagePickModalVisible, setSakuhinImagePickModalVisible] = useState(false)
 
   const resetForm = () => {
@@ -30,7 +30,6 @@ export default function Page() {
 
   const sakuhinImagePickHandler = async (frameType: 'square' | 'rectangle' | null) => {
     setFrameType(frameType)
-    setSakuhinImagePickModalVisible(false)
 
     pickItemImage()
       .then((uri) => {
@@ -38,7 +37,7 @@ export default function Page() {
       })
       .catch((e) => {
         setUploadResult(e.message)
-        setSakuhinUploadModalVisible(true)
+        setSakuhinUploadResultModalVisible(true)
       })
   }
 
@@ -46,12 +45,12 @@ export default function Page() {
     uploadItem(imageUri || '', title, artist, detail, frameType)
       .then(() => {
         setUploadResult('ぎゃらりーにとうこうしました')
-        setSakuhinUploadModalVisible(true)
+        setSakuhinUploadResultModalVisible(true)
         resetForm()
       })
       .catch((e) => {
         setUploadResult(e.message)
-        setSakuhinUploadModalVisible(true)
+        setSakuhinUploadResultModalVisible(true)
       })
   }
 
@@ -106,25 +105,22 @@ export default function Page() {
           りせっと
         </Button>
       </XStack>
-      {sakuhinUploadModalVisible && (
-        <UploadModal
-          visible={!!uploadResult}
-          message={uploadResult}
-          onClose={() => {
-            setUploadResult(null)
-            setSakuhinUploadModalVisible(false)
-          }}
-        />
-      )}
-      {sakuhinImagePickModalVisible && (
-        <SakuhinImagePickModal
-          visible={sakuhinImagePickModalVisible}
-          onSelect={(type) => {
-            sakuhinImagePickHandler(type)
-          }}
-          onClose={() => setSakuhinImagePickModalVisible(false)}
-        />
-      )}
+      <SakuhinImagePickModal
+        visible={sakuhinImagePickModalVisible}
+        onSelect={(type) => {
+          setSakuhinImagePickModalVisible(false)
+          sakuhinImagePickHandler(type)
+        }}
+        onClose={() => setSakuhinImagePickModalVisible(false)}
+      />
+      <MessageModal
+        visible={sakuhinUploadResultModalVisible}
+        message={uploadResult}
+        onClose={() => {
+          setUploadResult(null)
+          setSakuhinUploadResultModalVisible(false)
+        }}
+      />
     </YStack>
   )
 }
