@@ -18,6 +18,7 @@ export default function SakuhinImage({ imageUri, frameType, onPressFunc, onLongP
     <Pressable onPress={onPressFunc} onLongPress={onLongPressFunc}>
       {imageUri ? (
         <Image
+          testID="sakuhin-image-image"
           source={imageUri ? { uri: imageUri } : require('../assets/images/no_image.png')}
           style={frameType === 'square' ? styles.squareImage : styles.rectangleImage}
           resizeMode="cover"

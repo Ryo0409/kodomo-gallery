@@ -51,24 +51,24 @@ export default function SakuhinInfoModal({ visible, sakuhin, onClose }: Props) {
                 <Paragraph fontWeight="800" fontSize={15}>
                   さくひんめい
                 </Paragraph>
-                <Text>{sakuhin?.title || '（未設定）'}</Text>
+                <Text testID="sakuhin-info-modal-title">{sakuhin?.title || '（未設定）'}</Text>
               </YStack>
               <YStack my="$1">
                 <Paragraph fontWeight="800" fontSize={15}>
                   さくしゃ
                 </Paragraph>
-                <Text>{sakuhin?.artist || '（未設定）'}</Text>
+                <Text testID="sakuhin-info-modal-artist">{sakuhin?.artist || '（未設定）'}</Text>
               </YStack>
               <YStack my="$1">
                 <Paragraph fontWeight="800" fontSize={15}>
                   かいせつ
                 </Paragraph>
-                <Text>{sakuhin?.detail || '（未設定）'}</Text>
+                <Text testID="sakuhin-info-modal-detail">{sakuhin?.detail || '（未設定）'}</Text>
               </YStack>
             </Card>
             <Separator my="$5" />
             <DialogClose asChild>
-              <Button theme="accent" fontWeight="800" onPress={onClose}>
+              <Button testID="sakuhin-info-modal-close-button" theme="accent" fontWeight="800" onPress={onClose}>
                 とじる
               </Button>
             </DialogClose>
