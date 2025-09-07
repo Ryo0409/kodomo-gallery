@@ -72,6 +72,7 @@ export default function Page() {
             />
           ) : (
             <Button
+              testID="upload-image-select-button"
               width={250}
               height={250}
               backgroundColor="#fff"
@@ -80,28 +81,36 @@ export default function Page() {
               borderColor="#eee"
               onPress={() => setSakuhinImagePickModalVisible(true)}
             >
-              <Paragraph fontWeight="800">さくひんをえらぶ</Paragraph>
+              <Paragraph testID="upload-image-select-button-label" fontWeight="800">
+                さくひんをえらぶ
+              </Paragraph>
             </Button>
           )}
         </RandomPaperBackground>
       </YStack>
       <YStack mx="$4" mt="$2">
-        <Paragraph fontWeight="800">さくひんめい</Paragraph>
-        <Input size="$5" id="title" value={title} onChangeText={setTitle} />
+        <Paragraph testID="upload-title-input-label" fontWeight="800">
+          さくひんめい
+        </Paragraph>
+        <Input testID="upload-title-input" size="$5" id="title" value={title} onChangeText={setTitle} />
       </YStack>
       <YStack mx="$4" my="$2">
-        <Paragraph fontWeight="800">さくしゃ</Paragraph>
-        <Input size="$5" id="artist" value={artist} onChangeText={setArtist} />
+        <Paragraph testID="upload-artist-input-label" fontWeight="800">
+          さくしゃ
+        </Paragraph>
+        <Input testID="upload-artist-input" size="$5" id="artist" value={artist} onChangeText={setArtist} />
       </YStack>
       <YStack mx="$4" mt="$2">
-        <Paragraph fontWeight="800">かいせつ</Paragraph>
-        <Input size="$5" id="detail" value={detail} onChangeText={setDetail} />
+        <Paragraph testID="upload-detail-input-label" fontWeight="800">
+          かいせつ
+        </Paragraph>
+        <Input testID="upload-detail-input" size="$5" id="detail" value={detail} onChangeText={setDetail} />
       </YStack>
       <XStack mx="$4" mt="$4" justifyContent="space-around" alignItems="center">
-        <Button theme="accent" size="$4" fontWeight="800" onPress={sakuhinUploadHandler}>
+        <Button testID="upload-upload-button" theme="accent" size="$4" fontWeight="800" onPress={sakuhinUploadHandler}>
           とうこう
         </Button>
-        <Button themeInverse size="$4" fontWeight="800" onPress={resetForm}>
+        <Button testID="upload-reset-button" themeInverse size="$4" fontWeight="800" onPress={resetForm}>
           りせっと
         </Button>
       </XStack>
