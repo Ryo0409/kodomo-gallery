@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1757171357004" clover="3.2.0">
+  <project timestamp="1757171357004" name="All files">
+    <metrics statements="75" coveredstatements="68" conditionals="54" coveredconditionals="31" methods="17" coveredmethods="14" elements="146" coveredelements="113" complexity="0" loc="75" ncloc="75" packages="3" files="7" classes="7"/>
+    <package name="components">
+      <metrics statements="27" coveredstatements="22" conditionals="29" coveredconditionals="11" methods="11" coveredmethods="8"/>
+      <file name="MessageModal.tsx" path="/Users/ryohatada/Desktop/App/child_garally/garally/components/MessageModal.tsx">
+        <metrics statements="2" coveredstatements="1" conditionals="2" coveredconditionals="0" methods="2" coveredmethods="1"/>
+        <line num="11" count="3" type="stmt"/>
+        <line num="16" count="0" type="cond" truecount="0" falsecount="2"/>
+      </file>
+      <file name="RandomPaperBackground.tsx" path="/Users/ryohatada/Desktop/App/child_garally/garally/components/RandomPaperBackground.tsx">
+        <metrics statements="19" coveredstatements="16" conditionals="11" coveredconditionals="3" methods="4" coveredmethods="3"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="8" count="48" type="stmt"/>
+        <line num="12" count="6" type="stmt"/>
+        <line num="13" count="6" type="stmt"/>
+        <line num="14" count="6" type="stmt"/>
+        <line num="15" count="6" type="stmt"/>
+        <line num="16" count="6" type="stmt"/>
+        <line num="17" count="6" type="stmt"/>
+        <line num="18" count="6" type="stmt"/>
+        <line num="19" count="6" type="stmt"/>
+        <line num="21" count="6" type="stmt"/>
+        <line num="52" count="6" type="stmt"/>
+        <line num="53" count="6" type="stmt"/>
+        <line num="54" count="6" type="cond" truecount="1" falsecount="1"/>
+        <line num="56" count="6" type="stmt"/>
+        <line num="57" count="0" type="stmt"/>
+        <line num="58" count="0" type="stmt"/>
+        <line num="59" count="0" type="stmt"/>
+        <line num="62" count="6" type="stmt"/>
+      </file>
+      <file name="SakuhinDeleteModal.tsx" path="/Users/ryohatada/Desktop/App/child_garally/garally/components/SakuhinDeleteModal.tsx">
+        <metrics statements="2" coveredstatements="1" conditionals="2" coveredconditionals="0" methods="2" coveredmethods="1"/>
+        <line num="15" count="4" type="stmt"/>
+        <line num="20" count="0" type="cond" truecount="0" falsecount="2"/>
+      </file>
+      <file name="SakuhinImage.tsx" path="/Users/ryohatada/Desktop/App/child_garally/garally/components/SakuhinImage.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="6" coveredconditionals="4" methods="1" coveredmethods="1"/>
+        <line num="17" count="9" type="stmt"/>
+        <line num="31" count="3" type="stmt"/>
+      </file>
+      <file name="SakuhinInfoModal.tsx" path="/Users/ryohatada/Desktop/App/child_garally/garally/components/SakuhinInfoModal.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="8" coveredconditionals="4" methods="2" coveredmethods="2"/>
+        <line num="15" count="4" type="stmt"/>
+        <line num="20" count="1" type="cond" truecount="1" falsecount="1"/>
+      </file>
+    </package>
+    <package name="themes">
+      <metrics statements="6" coveredstatements="6" conditionals="4" coveredconditionals="2" methods="0" coveredmethods="0"/>
+      <file name="themes.ts" path="/Users/ryohatada/Desktop/App/child_garally/garally/themes/themes.ts">
+        <metrics statements="6" coveredstatements="6" conditionals="4" coveredconditionals="2" methods="0" coveredmethods="0"/>
+        <line num="4" count="4" type="stmt"/>
+        <line num="18" count="4" type="stmt"/>
+        <line num="33" count="4" type="stmt"/>
+        <line num="42" count="4" type="stmt"/>
+        <line num="53" count="4" type="stmt"/>
+        <line num="165" count="4" type="cond" truecount="2" falsecount="2"/>
+      </file>
+    </package>
+    <package name="utils">
+      <metrics statements="42" coveredstatements="40" conditionals="21" coveredconditionals="18" methods="6" coveredmethods="6"/>
+      <file name="galleryUtils.ts" path="/Users/ryohatada/Desktop/App/child_garally/garally/utils/galleryUtils.ts">
+        <metrics statements="42" coveredstatements="40" conditionals="21" coveredconditionals="18" methods="6" coveredmethods="6"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="16" count="2" type="stmt"/>
+        <line num="17" count="2" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="20" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="26" count="2" type="stmt"/>
+        <line num="27" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="29" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="31" count="2" type="stmt"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="36" count="2" type="stmt"/>
+        <line num="38" count="1" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
+        <line num="44" count="1" type="stmt"/>
+        <line num="45" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="46" count="1" type="stmt"/>
+        <line num="48" count="2" type="stmt"/>
+        <line num="49" count="2" type="stmt"/>
+        <line num="50" count="1" type="stmt"/>
+        <line num="52" count="1" type="stmt"/>
+        <line num="56" count="1" type="stmt"/>
+        <line num="63" count="4" type="cond" truecount="7" falsecount="0"/>
+        <line num="64" count="1" type="stmt"/>
+        <line num="67" count="3" type="stmt"/>
+        <line num="68" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="69" count="3" type="stmt"/>
+        <line num="71" count="3" type="stmt"/>
+        <line num="72" count="3" type="stmt"/>
+        <line num="74" count="1" type="stmt"/>
+        <line num="77" count="2" type="stmt"/>
+        <line num="85" count="2" type="stmt"/>
+        <line num="86" count="2" type="stmt"/>
+        <line num="88" count="1" type="stmt"/>
+        <line num="92" count="1" type="stmt"/>
+        <line num="93" count="3" type="stmt"/>
+        <line num="94" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="95" count="1" type="stmt"/>
+        <line num="98" count="2" type="stmt"/>
+        <line num="103" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="105" count="1" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>

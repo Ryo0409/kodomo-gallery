@@ -38,10 +38,14 @@ describe('SakuhinInfoModal', () => {
       height: 250,
     })
 
-    expect(getByTestId('sakuhin-info-modal-title').children[0]).toBe('t1')
-    expect(getByTestId('sakuhin-info-modal-artist').children[0]).toBe('a1')
-    expect(getByTestId('sakuhin-info-modal-detail').children[0]).toBe('d1')
-    expect(getByTestId('sakuhin-info-modal-close-button')).toBeTruthy()
+    expect(getByTestId('sakuhin-info-modal-title')).toHaveTextContent('このさくひんについて')
+    expect(getByTestId('sakuhin-info-modal-sakuhin-title-label')).toHaveTextContent('さくひんめい')
+    expect(getByTestId('sakuhin-info-modal-sakuhin-title')).toHaveTextContent('t1')
+    expect(getByTestId('sakuhin-info-modal-sakuhin-artist-label')).toHaveTextContent('さくしゃ')
+    expect(getByTestId('sakuhin-info-modal-sakuhin-artist')).toHaveTextContent('a1')
+    expect(getByTestId('sakuhin-info-modal-sakuhin-detail-label')).toHaveTextContent('かいせつ')
+    expect(getByTestId('sakuhin-info-modal-sakuhin-detail')).toHaveTextContent('d1')
+    expect(getByTestId('sakuhin-info-modal-close-button')).toHaveTextContent('とじる')
   })
 
   it('SakuhinInfoModalの表示 (frameType: rectangle)', () => {
@@ -65,10 +69,14 @@ describe('SakuhinInfoModal', () => {
       height: 177,
     })
 
-    expect(getByTestId('sakuhin-info-modal-title').children[0]).toBe('t1')
-    expect(getByTestId('sakuhin-info-modal-artist').children[0]).toBe('a1')
-    expect(getByTestId('sakuhin-info-modal-detail').children[0]).toBe('d1')
-    expect(getByTestId('sakuhin-info-modal-close-button')).toBeTruthy()
+    expect(getByTestId('sakuhin-info-modal-title')).toHaveTextContent('このさくひんについて')
+    expect(getByTestId('sakuhin-info-modal-sakuhin-title-label')).toHaveTextContent('さくひんめい')
+    expect(getByTestId('sakuhin-info-modal-sakuhin-title')).toHaveTextContent('t1')
+    expect(getByTestId('sakuhin-info-modal-sakuhin-artist-label')).toHaveTextContent('さくしゃ')
+    expect(getByTestId('sakuhin-info-modal-sakuhin-artist')).toHaveTextContent('a1')
+    expect(getByTestId('sakuhin-info-modal-sakuhin-detail-label')).toHaveTextContent('かいせつ')
+    expect(getByTestId('sakuhin-info-modal-sakuhin-detail')).toHaveTextContent('d1')
+    expect(getByTestId('sakuhin-info-modal-close-button')).toHaveTextContent('とじる')
   })
 
   it('SakuhinInfoModalの非表示', () => {
@@ -88,8 +96,12 @@ describe('SakuhinInfoModal', () => {
 
     expect(queryByTestId('sakuhin-image-image')).toBeNull()
     expect(queryByTestId('sakuhin-info-modal-title')).toBeNull()
-    expect(queryByTestId('sakuhin-info-modal-artist')).toBeNull()
-    expect(queryByTestId('sakuhin-info-modal-detail')).toBeNull()
+    expect(queryByTestId('sakuhin-info-modal-sakuhin-title-label')).toBeNull()
+    expect(queryByTestId('sakuhin-info-modal-sakuhin-title')).toBeNull()
+    expect(queryByTestId('sakuhin-info-modal-sakuhin-artist-label')).toBeNull()
+    expect(queryByTestId('sakuhin-info-modal-sakuhin-artist')).toBeNull()
+    expect(queryByTestId('sakuhin-info-modal-sakuhin-detail-label')).toBeNull()
+    expect(queryByTestId('sakuhin-info-modal-sakuhin-detail')).toBeNull()
     expect(queryByTestId('sakuhin-info-modal-close-button')).toBeNull()
   })
 

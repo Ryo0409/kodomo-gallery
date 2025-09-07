@@ -30,7 +30,7 @@ export default function SakuhinInfoModal({ visible, sakuhin, onClose }: Props) {
         <Dialog.Content bordered elevate key="content">
           <YStack mx="$4" mt="$2">
             <YStack my="$3" alignItems="center">
-              <Paragraph fontWeight="800" fontSize={25}>
+              <Paragraph testID="sakuhin-info-modal-title" fontWeight="800" fontSize={25}>
                 このさくひんについて
               </Paragraph>
             </YStack>
@@ -48,22 +48,22 @@ export default function SakuhinInfoModal({ visible, sakuhin, onClose }: Props) {
               shadowOpacity={0.3}
             >
               <YStack my="$1">
-                <Paragraph fontWeight="800" fontSize={15}>
+                <Paragraph testID="sakuhin-info-modal-sakuhin-title-label" fontWeight="800" fontSize={15}>
                   さくひんめい
                 </Paragraph>
-                <Text testID="sakuhin-info-modal-title">{sakuhin?.title || '（未設定）'}</Text>
+                <Text testID="sakuhin-info-modal-sakuhin-title">{sakuhin?.title || '（未設定）'}</Text>
               </YStack>
               <YStack my="$1">
-                <Paragraph fontWeight="800" fontSize={15}>
+                <Paragraph testID="sakuhin-info-modal-sakuhin-artist-label" fontWeight="800" fontSize={15}>
                   さくしゃ
                 </Paragraph>
-                <Text testID="sakuhin-info-modal-artist">{sakuhin?.artist || '（未設定）'}</Text>
+                <Text testID="sakuhin-info-modal-sakuhin-artist">{sakuhin?.artist || '（未設定）'}</Text>
               </YStack>
               <YStack my="$1">
-                <Paragraph fontWeight="800" fontSize={15}>
+                <Paragraph testID="sakuhin-info-modal-sakuhin-detail-label" fontWeight="800" fontSize={15}>
                   かいせつ
                 </Paragraph>
-                <Text testID="sakuhin-info-modal-detail">{sakuhin?.detail || '（未設定）'}</Text>
+                <Text testID="sakuhin-info-modal-sakuhin-detail">{sakuhin?.detail || '（未設定）'}</Text>
               </YStack>
             </Card>
             <Separator my="$5" />

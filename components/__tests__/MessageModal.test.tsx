@@ -17,28 +17,29 @@ function renderWithProvider(ui: React.ReactElement) {
 describe('MessageModal', () => {
   it('MessageModalの表示', () => {
     const onClose = jest.fn()
-    const { getByText } = renderWithProvider(
+    const { getByTestId } = renderWithProvider(
       <MessageModal visible={true} message="テストメッセージ" onClose={onClose} />,
     )
-    expect(getByText('テストメッセージ')).toBeTruthy()
-    expect(getByText('とじる')).toBeTruthy()
+
+    expect(getByTestId('message-modal-message')).toHaveTextContent('テストメッセージ')
+    expect(getByTestId('message-modal-close-button')).toHaveTextContent('とじる')
   })
 
   it('MessageModalの非表示', () => {
     const onClose = jest.fn()
-    const { queryByText } = renderWithProvider(
+    const { queryByTestId } = renderWithProvider(
       <MessageModal visible={false} message="テストメッセージ" onClose={onClose} />,
     )
-    expect(queryByText('テストメッセージ')).toBeNull()
-    expect(queryByText('とじる')).toBeNull()
+    expect(queryByTestId('message-modal-message')).toBeNull()
+    expect(queryByTestId('message-modal-close-button')).toBeNull()
   })
 
   it('MessageModalのonClose処理', () => {
     const onClose = jest.fn()
-    const { getByText } = renderWithProvider(
+    const { getByTestId } = renderWithProvider(
       <MessageModal visible={true} message="テストメッセージ" onClose={onClose} />,
     )
-    fireEvent.press(getByText('とじる'))
+    fireEvent.press(getByTestId('message-modal-close-button'))
     expect(onClose).toHaveBeenCalled()
   })
 })

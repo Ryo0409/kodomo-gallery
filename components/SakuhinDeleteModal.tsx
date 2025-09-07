@@ -30,7 +30,7 @@ export default function SakuhinDeleteModal({ visible, sakuhin, onClose, deleteFu
         <Dialog.Content bordered elevate key="content">
           <YStack mx="$4" mt="$2">
             <YStack my="$3" alignItems="center">
-              <Paragraph fontWeight="800" fontSize={20}>
+              <Paragraph testID="sakuhin-delete-modal-title" fontWeight="800" fontSize={20}>
                 このさくひんをさくじょしますか？
               </Paragraph>
             </YStack>
@@ -46,14 +46,19 @@ export default function SakuhinDeleteModal({ visible, sakuhin, onClose, deleteFu
             </YStack>
             <DialogClose asChild>
               <YStack my="$2">
-                <Button theme="accent" fontWeight="800" onPress={deleteFunc}>
+                <Button
+                  testID="sakuhin-delete-modal-delete-button"
+                  theme="accent"
+                  fontWeight="800"
+                  onPress={deleteFunc}
+                >
                   さくじょ
                 </Button>
               </YStack>
             </DialogClose>
             <DialogClose asChild>
               <YStack my="$2">
-                <Button themeInverse fontWeight="800" onPress={onClose}>
+                <Button testID="sakuhin-delete-modal-cancel-button" themeInverse fontWeight="800" onPress={onClose}>
                   きゃんせる
                 </Button>
               </YStack>

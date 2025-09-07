@@ -61,6 +61,7 @@ export default function RandomPaperBackground({
 
   return (
     <View
+      testID="random-paper-background"
       style={{
         alignItems: 'center',
         justifyContent: 'center',
@@ -76,7 +77,7 @@ export default function RandomPaperBackground({
           <Path d={path} fill={color} />
         </Svg>
       )}
-      <View onLayout={handleLayout} style={{ zIndex: 1 }}>
+      <View testID="random-paper-background-content" onLayout={handleLayout} style={{ zIndex: 1 }}>
         {children}
       </View>
     </View>
