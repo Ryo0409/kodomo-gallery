@@ -26,11 +26,13 @@ export default function UploadModal({ visible, message, onClose }: Props) {
         <Dialog.Content bordered elevate key="content">
           <YStack mx="$4" mt="$2">
             <YStack my="$3">
-              <Paragraph fontSize={15}>{message}</Paragraph>
+              <Paragraph testID="message-modal-message" fontSize={15}>
+                {message}
+              </Paragraph>
             </YStack>
             <DialogClose asChild>
               <YStack my="$2">
-                <Button themeInverse fontWeight="800" onPress={onClose}>
+                <Button testID="message-modal-close-button" themeInverse fontWeight="800" onPress={onClose}>
                   とじる
                 </Button>
               </YStack>

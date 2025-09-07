@@ -24,11 +24,12 @@ export default function SakuhinImagePickModal({ visible, onSelect, onClose }: Pr
         />
         <Dialog.Content bordered elevate key="content">
           <YStack gap="$3" alignItems="center">
-            <Paragraph fontWeight="800" fontSize={18}>
+            <Paragraph testID="sakuhin-image-pick-modal-title" fontWeight="800" fontSize={18}>
               がくぶちをせんたくしてください
             </Paragraph>
             <XStack mx="$4" mt="$4" justifyContent="space-around" alignItems="center">
               <Button
+                testID="sakuhin-image-pick-modal-square-button"
                 mx="$2"
                 size="$4"
                 fontWeight="800"
@@ -39,6 +40,7 @@ export default function SakuhinImagePickModal({ visible, onSelect, onClose }: Pr
                 せいほう
               </Button>
               <Button
+                testID="sakuhin-image-pick-modal-rectangle-button"
                 mx="$2"
                 size="$4"
                 fontWeight="800"
@@ -48,7 +50,14 @@ export default function SakuhinImagePickModal({ visible, onSelect, onClose }: Pr
               >
                 よこなが
               </Button>
-              <Button mx="$2" themeInverse size="$4" fontWeight="800" onPress={() => onClose()}>
+              <Button
+                testID="sakuhin-image-pick-modal-cancel-button"
+                mx="$2"
+                themeInverse
+                size="$4"
+                fontWeight="800"
+                onPress={() => onClose()}
+              >
                 きゃんせる
               </Button>
             </XStack>
