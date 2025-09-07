@@ -39,6 +39,7 @@ const mockSakuhinData: SakuhinInfo[] = [
     title: 'テスト作品1',
     artist: 'テスト作者1',
     detail: 'テスト詳細1',
+    createdAt: 1000,
   },
   {
     key: '2',
@@ -47,6 +48,7 @@ const mockSakuhinData: SakuhinInfo[] = [
     title: 'テスト作品2',
     artist: 'テスト作者2',
     detail: 'テスト詳細2',
+    createdAt: 2000,
   },
 ]
 
