@@ -33,12 +33,22 @@ export default function Page() {
   )
 
   return (
-    <YStack backgroundColor={'$background'} flex={1} justifyContent="center" alignItems="center" paddingTop={30}>
+    <YStack
+      testID="index-gallery-page"
+      backgroundColor={'$background'}
+      flex={1}
+      justifyContent="center"
+      alignItems="center"
+      paddingTop={30}
+    >
       {myItems.length === 0 ? (
-        <Paragraph fontWeight="800">さくひんがありません</Paragraph>
+        <Paragraph testID="index-no-items-message" fontWeight="800">
+          さくひんがありません
+        </Paragraph>
       ) : (
         <>
           <FlatList
+            testID="index-gallery-flatlist"
             data={myItems}
             keyExtractor={(item) => item.key}
             numColumns={1}
