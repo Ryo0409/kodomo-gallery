@@ -10,6 +10,7 @@ export type SakuhinInfo = {
   title: string
   artist: string
   detail: string
+  createdAt: number
 }
 
 export const getItems = async (): Promise<SakuhinInfo[]> => {
@@ -28,12 +29,16 @@ export const getItems = async (): Promise<SakuhinInfo[]> => {
 
           if (!parsed) return null
 
-          return { ...parsed, key }
+          // 既存のデータでcreatedAtがない場合は、現在時刻を設定
+          const createdAt = parsed.createdAt || Date.now()
+
+          return { ...parsed, key, createdAt }
         } catch {
           return null
         }
       })
       .filter((item): item is SakuhinInfo => item !== null)
+      .sort((a, b) => a.createdAt - b.createdAt) // 作成時刻の昇順（古い順）でソート
 
     return sakuhinInfo
   } catch {
@@ -80,11 +85,12 @@ export const uploadItem = async (
     detail,
     frameType,
     uri: destinationUri,
+    createdAt: Date.now(),
   }
 
   try {
     await AsyncStorage.setItem(uuidv4(), JSON.stringify(imageData))
-  } catch (e) {
+  } catch {
     throw new Error('ぎゃらりーへのとうこうにしっぱいしました')
   }
 }
