@@ -30,6 +30,7 @@ export default function SakuhinImagePickModal({ visible, onSelect, onClose }: Pr
             <XStack mx="$4" mt="$4" justifyContent="space-around" alignItems="center">
               <Button
                 testID="sakuhin-image-pick-modal-square-button"
+                theme="accent"
                 mx="$2"
                 size="$4"
                 fontWeight="800"
@@ -41,6 +42,7 @@ export default function SakuhinImagePickModal({ visible, onSelect, onClose }: Pr
               </Button>
               <Button
                 testID="sakuhin-image-pick-modal-rectangle-button"
+                theme="accent"
                 mx="$2"
                 size="$4"
                 fontWeight="800"
