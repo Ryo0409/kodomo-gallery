@@ -1,4 +1,4 @@
-import FontAwesome5 from '@expo/vector-icons/FontAwesome5'
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons'
 import { defaultConfig } from '@tamagui/config/v4'
 import { Tabs } from 'expo-router'
 import { createTamagui, TamaguiProvider } from 'tamagui'
@@ -10,17 +10,30 @@ const config = createTamagui({
   themes,
 })
 
+const paperColors = ['#d95f26', '#e3be4f', '#27568b', '#41acd2', '#e7c0d4']
+
+const getRandomColor = () => {
+  return paperColors[Math.floor(Math.random() * paperColors.length)]
+}
+
 export default function Layout() {
   return (
     <TamaguiProvider config={config}>
-      <Tabs screenOptions={{ headerShown: false, tabBarActiveTintColor: '#e88121', tabBarInactiveTintColor: '#555' }}>
+      <Tabs
+        screenOptions={{ headerShown: false, tabBarActiveTintColor: getRandomColor(), tabBarInactiveTintColor: '#555' }}
+      >
         <Tabs.Screen
           name="index"
           options={{
             title: 'ぎゃらりー',
             tabBarShowLabel: false,
-            tabBarIcon: ({ color, size }) => (
-              <FontAwesome5 name="landmark" color={color} size={size} style={{ marginTop: 5 }} />
+            tabBarIcon: ({ focused, size }) => (
+              <MaterialCommunityIcons
+                name="square"
+                size={25}
+                color={focused ? getRandomColor() : '#555'}
+                style={{ marginTop: 5 }}
+              />
             ),
           }}
         />
@@ -29,8 +42,13 @@ export default function Layout() {
           options={{
             title: 'とうこう',
             tabBarShowLabel: false,
-            tabBarIcon: ({ color, size }) => (
-              <FontAwesome5 name="plus-square" color={color} size={size} style={{ marginTop: 5 }} />
+            tabBarIcon: ({ focused, size }) => (
+              <MaterialCommunityIcons
+                name="triangle"
+                size={size}
+                color={focused ? getRandomColor() : '#555'}
+                style={{ marginTop: 5 }}
+              />
             ),
           }}
         />

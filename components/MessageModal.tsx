@@ -32,7 +32,7 @@ export default function UploadModal({ visible, message, onClose }: Props) {
             </YStack>
             <DialogClose asChild>
               <YStack my="$2">
-                <Button testID="message-modal-close-button" themeInverse fontWeight="800" onPress={onClose}>
+                <Button testID="message-modal-close-button" theme="accent" fontWeight="800" onPress={onClose}>
                   とじる
                 </Button>
               </YStack>
