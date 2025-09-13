@@ -1,13 +1,14 @@
 import { render } from '@testing-library/react-native'
 import React from 'react'
-import { Text, View } from 'react-native'
+import { Text } from 'react-native'
 
 import RandomPaperBackground from '../RandomPaperBackground'
 
-// Math.randomをモック化してテストを安定させる
-const mockMath = Object.create(global.Math)
-mockMath.random = jest.fn(() => 0.5)
-global.Math = mockMath
+// getFrameSeedをモック化
+jest.mock('../../utils/galleryUtils', () => ({
+  getFrameSeed: jest.fn(() => [0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5]),
+  FrameSeed: [0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5], // 型も含む
+}))
 
 describe('RandomPaperBackground', () => {
   afterEach(() => {
@@ -59,16 +60,5 @@ describe('RandomPaperBackground', () => {
         </RandomPaperBackground>,
       )
     }).not.toThrow()
-  })
-
-  it('Math.randomが呼ばれることを確認', () => {
-    render(
-      <RandomPaperBackground>
-        <Text>テスト</Text>
-      </RandomPaperBackground>,
-    )
-
-    // コンポーネントの初期化時にMath.randomが呼ばれることを確認
-    expect(Math.random).toHaveBeenCalled()
   })
 })
