@@ -3,10 +3,14 @@ import * as FileSystem from 'expo-file-system'
 import * as ImagePicker from 'expo-image-picker'
 import { v4 as uuidv4 } from 'uuid'
 
+// フレームのためのランダムシード
+export type FrameSeed = [number, number, number, number, number, number, number, number]
+
 export type SakuhinInfo = {
   key: string
   uri: string
   frameType: 'square' | 'rectangle' | null
+  frameSeed: FrameSeed
   title: string
   artist: string
   detail: string
@@ -29,10 +33,10 @@ export const getItems = async (): Promise<SakuhinInfo[]> => {
 
           if (!parsed) return null
 
-          // 既存のデータでcreatedAtがない場合は、現在時刻を設定
-          const createdAt = parsed.createdAt || Date.now()
-
-          return { ...parsed, key, createdAt }
+          return {
+            ...parsed,
+            key,
+          }
         } catch {
           return null
         }
@@ -64,6 +68,7 @@ export const uploadItem = async (
   artist: string,
   detail: string,
   frameType: 'square' | 'rectangle' | null,
+  randomSeed: FrameSeed,
 ): Promise<void> => {
   if (!uri || !title || !artist || !detail || !frameType) {
     throw new Error('すべてのこうもくをにゅうりょくしてください')
@@ -86,6 +91,7 @@ export const uploadItem = async (
     frameType,
     uri: destinationUri,
     createdAt: Date.now(),
+    frameSeed: randomSeed,
   }
 
   try {
@@ -109,4 +115,17 @@ export const pickItemImage = async (): Promise<string | null> => {
   if (result.canceled) return null
 
   return result.assets[0].uri
+}
+
+export const getFrameSeed = (): FrameSeed => {
+  return [
+    Math.random(),
+    Math.random(),
+    Math.random(),
+    Math.random(),
+    Math.random(),
+    Math.random(),
+    Math.random(),
+    Math.random(),
+  ]
 }

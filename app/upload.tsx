@@ -2,7 +2,7 @@ import { useState } from 'react'
 import 'react-native-get-random-values'
 import { XStack, YStack, Input, Paragraph, Button } from 'tamagui'
 
-import { uploadItem, pickItemImage } from '../utils/galleryUtils'
+import { uploadItem, pickItemImage, getFrameSeed } from '../utils/galleryUtils'
 
 import MessageModal from '@/components/MessageModal'
 import RandomPaperBackground from '@/components/RandomPaperBackground'
@@ -15,6 +15,7 @@ export default function Page() {
   const [artist, setArtist] = useState('')
   const [detail, setDetail] = useState('')
   const [frameType, setFrameType] = useState<'square' | 'rectangle' | null>(null)
+  const [randomSeed, setRandomSeed] = useState(getFrameSeed())
 
   const [uploadResult, setUploadResult] = useState<string | null>(null)
   const [sakuhinUploadResultModalVisible, setSakuhinUploadResultModalVisible] = useState(false)
@@ -26,6 +27,7 @@ export default function Page() {
     setArtist('')
     setDetail('')
     setFrameType(null)
+    setRandomSeed(getFrameSeed())
   }
 
   const sakuhinImagePickHandler = async (frameType: 'square' | 'rectangle' | null) => {
@@ -42,7 +44,7 @@ export default function Page() {
   }
 
   const sakuhinUploadHandler = async () => {
-    uploadItem(imageUri || '', title, artist, detail, frameType)
+    uploadItem(imageUri || '', title, artist, detail, frameType, randomSeed)
       .then(() => {
         setUploadResult('ぎゃらりーにとうこうしました')
         setSakuhinUploadResultModalVisible(true)
@@ -56,9 +58,9 @@ export default function Page() {
 
   return (
     <YStack $maxMd={{ width: '100%' }} backgroundColor={'$background'} flex={1} paddingTop={50}>
-      <YStack mx="$4" my="$4" alignItems="center">
+      <YStack mx="$4" my="$2" alignItems="center">
         <RandomPaperBackground
-          fixColor="#e88121"
+          randomSeed={randomSeed}
           paddingVertical={70}
           paddingHorizontal={70}
           marginVertical={0}

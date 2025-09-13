@@ -34,7 +34,13 @@ export default function SakuhinInfoModal({ visible, sakuhin, onClose }: Props) {
                 このさくひんについて
               </Paragraph>
             </YStack>
-            <RandomPaperBackground paddingVertical={70} paddingHorizontal={70} marginVertical={0} marginHorizontal={0}>
+            <RandomPaperBackground
+              randomSeed={sakuhin?.frameSeed}
+              paddingVertical={70}
+              paddingHorizontal={70}
+              marginVertical={0}
+              marginHorizontal={0}
+            >
               <SakuhinImage imageUri={sakuhin?.uri} frameType={sakuhin?.frameType} />
             </RandomPaperBackground>
             <Card

@@ -36,6 +36,7 @@ export default function SakuhinDeleteModal({ visible, sakuhin, onClose, deleteFu
             </YStack>
             <YStack my="$3" alignItems="center">
               <RandomPaperBackground
+                randomSeed={sakuhin?.frameSeed}
                 paddingVertical={70}
                 paddingHorizontal={70}
                 marginVertical={0}

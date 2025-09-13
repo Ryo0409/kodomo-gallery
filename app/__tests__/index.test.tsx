@@ -1,5 +1,6 @@
 import { defaultConfig } from '@tamagui/config/v4'
 import { render, fireEvent, waitFor } from '@testing-library/react-native'
+import React from 'react'
 import { TamaguiProvider, createTamagui } from 'tamagui'
 
 import { themes } from '../../themes/themes'
@@ -8,15 +9,17 @@ import Page from '../index'
 
 // React Navigationのモック
 jest.mock('@react-navigation/native', () => ({
-  useFocusEffect: (callback: () => void) => {
+  useFocusEffect: jest.fn((callback: () => void) => {
+    // テスト用に即座に実行
     callback()
-  },
+  }),
 }))
 
 // galleryUtilsをモック化
 jest.mock('../../utils/galleryUtils', () => ({
   getItems: jest.fn(),
   deleteItem: jest.fn(),
+  getFrameSeed: jest.fn(() => [0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5]),
 }))
 
 const mockedGetItems = getItems as jest.MockedFunction<typeof getItems>
@@ -36,6 +39,7 @@ const mockSakuhinData: SakuhinInfo[] = [
     key: '1',
     uri: 'test-image-1.jpg',
     frameType: 'square',
+    frameSeed: [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8],
     title: 'テスト作品1',
     artist: 'テスト作者1',
     detail: 'テスト詳細1',
@@ -45,6 +49,7 @@ const mockSakuhinData: SakuhinInfo[] = [
     key: '2',
     uri: 'test-image-2.jpg',
     frameType: 'rectangle',
+    frameSeed: [0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9],
     title: 'テスト作品2',
     artist: 'テスト作者2',
     detail: 'テスト詳細2',

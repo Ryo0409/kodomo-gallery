@@ -56,6 +56,7 @@ export default function Page() {
             showsVerticalScrollIndicator={false}
             renderItem={({ item }) => (
               <RandomPaperBackground
+                randomSeed={item.frameSeed}
                 paddingVertical={70}
                 paddingHorizontal={70}
                 marginVertical={0}
