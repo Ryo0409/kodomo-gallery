@@ -10,6 +10,7 @@ import Page from '../upload'
 jest.mock('../../utils/galleryUtils', () => ({
   uploadItem: jest.fn(),
   pickItemImage: jest.fn(),
+  getFrameSeed: jest.fn(() => [0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5]),
 }))
 
 const mockedUploadItem = uploadItem as jest.MockedFunction<typeof uploadItem>
