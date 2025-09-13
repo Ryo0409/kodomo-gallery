@@ -56,14 +56,8 @@ export default function Page() {
 
   return (
     <YStack $maxMd={{ width: '100%' }} backgroundColor={'$background'} flex={1} paddingTop={50}>
-      <YStack mx="$4" my="$4" alignItems="center">
-        <RandomPaperBackground
-          fixColor="#e88121"
-          paddingVertical={70}
-          paddingHorizontal={70}
-          marginVertical={0}
-          marginHorizontal={0}
-        >
+      <YStack mx="$4" my="$2" alignItems="center">
+        <RandomPaperBackground paddingVertical={70} paddingHorizontal={70} marginVertical={0} marginHorizontal={0}>
           {imageUri ? (
             <SakuhinImage
               imageUri={imageUri}
