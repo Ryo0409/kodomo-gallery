@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { View, LayoutChangeEvent } from 'react-native'
 import Svg, { Path } from 'react-native-svg'
 
@@ -54,13 +54,21 @@ export default function RandomPaperBackground({
 }: Props) {
   const [size, setSize] = useState({ width: 0, height: 0 })
   const [path, setPath] = useState('')
-  const [color, setColor] = useState('')
+  const [color, setColor] = useState(paperColors[Math.floor(randomSeed[0] * paperColors.length)])
+
+  // randomSeedが変わった時に色とパスを更新
+  useEffect(() => {
+    setColor(paperColors[Math.floor(randomSeed[0] * paperColors.length)])
+    if (size.width > 0 && size.height > 0) {
+      setPath(generateRoundedRect(size.width, size.height, randomSeed, 50))
+    }
+  }, [randomSeed, size.width, size.height])
 
   const handleLayout = (e: LayoutChangeEvent) => {
     const { width, height } = e.nativeEvent.layout
-    setSize({ width: width + paddingHorizontal, height: height + paddingVertical })
-    setPath(generateRoundedRect(width + paddingHorizontal, height + paddingVertical, randomSeed, 50))
-    setColor(paperColors[Math.floor(randomSeed[0] * paperColors.length)])
+    const newSize = { width: width + paddingHorizontal, height: height + paddingVertical }
+    setSize(newSize)
+    setPath(generateRoundedRect(newSize.width, newSize.height, randomSeed, 50))
   }
 
   return (
