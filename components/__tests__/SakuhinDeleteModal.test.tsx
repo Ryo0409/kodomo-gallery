@@ -7,6 +7,11 @@ import SakuhinDeleteModal from '../SakuhinDeleteModal'
 
 import type { SakuhinInfo } from '@/utils/galleryUtils'
 
+// galleryUtilsのgetFrameSeedをモック化
+jest.mock('../../utils/galleryUtils', () => ({
+  getFrameSeed: jest.fn(() => [0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5]),
+}))
+
 const config = createTamagui({
   ...defaultConfig,
   themes,
@@ -22,9 +27,11 @@ describe('SakuhinDeleteModal', () => {
       key: '1',
       uri: 'https://example.com/image.jpg',
       frameType: 'square',
+      frameSeed: [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8],
       title: 't1',
       artist: 'a1',
       detail: 'd1',
+      createdAt: 1000,
     }
     const onClose = jest.fn()
     const deleteFunc = jest.fn()
@@ -51,9 +58,11 @@ describe('SakuhinDeleteModal', () => {
       key: '1',
       uri: 'https://example.com/image.jpg',
       frameType: 'rectangle',
+      frameSeed: [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8],
       title: 't1',
       artist: 'a1',
       detail: 'd1',
+      createdAt: 1000,
     }
     const onClose = jest.fn()
     const deleteFunc = jest.fn()
@@ -80,9 +89,11 @@ describe('SakuhinDeleteModal', () => {
       key: '1',
       uri: 'https://example.com/image.jpg',
       frameType: 'square',
+      frameSeed: [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8],
       title: 't1',
       artist: 'a1',
       detail: 'd1',
+      createdAt: 1000,
     }
     const onClose = jest.fn()
     const deleteFunc = jest.fn()
@@ -102,9 +113,11 @@ describe('SakuhinDeleteModal', () => {
       key: '1',
       uri: 'https://example.com/image.jpg',
       frameType: 'square',
+      frameSeed: [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8],
       title: 't1',
       artist: 'a1',
       detail: 'd1',
+      createdAt: 1000,
     }
     const onClose = jest.fn()
     const deleteFunc = jest.fn()

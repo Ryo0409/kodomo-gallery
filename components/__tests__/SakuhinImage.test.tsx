@@ -22,9 +22,11 @@ describe('SakuhinImage', () => {
       key: '1',
       uri: 'https://example.com/image.jpg',
       frameType: 'square',
+      frameSeed: [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8],
       title: 't1',
       artist: 'a1',
       detail: 'd1',
+      createdAt: 1000,
     }
     const onPress = jest.fn()
     const onLongPress = jest.fn()
@@ -52,9 +54,11 @@ describe('SakuhinImage', () => {
       key: '1',
       uri: 'https://example.com/image.jpg',
       frameType: 'rectangle',
+      frameSeed: [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8],
       title: 't1',
       artist: 'a1',
       detail: 'd1',
+      createdAt: 1000,
     }
     const onClose = jest.fn()
 
@@ -76,9 +80,11 @@ describe('SakuhinImage', () => {
       key: '1',
       uri: 'https://example.com/image.jpg',
       frameType: 'square',
+      frameSeed: [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8],
       title: 't1',
       artist: 'a1',
       detail: 'd1',
+      createdAt: 1000,
     }
     const onPress = jest.fn()
     const onLongPress = jest.fn()
