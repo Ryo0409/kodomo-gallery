@@ -46,6 +46,7 @@ describe('galleryUtils', () => {
             artist: 'a1',
             detail: 'd1',
             createdAt: 1000,
+            frameSeed: [0, 0, 0, 0, 0, 0, 0, 0],
           }),
         ],
         [
@@ -57,6 +58,7 @@ describe('galleryUtils', () => {
             artist: 'a2',
             detail: 'd2',
             createdAt: 2000,
+            frameSeed: [0, 0, 0, 0, 0, 0, 0, 0],
           }),
         ],
       ])
@@ -71,6 +73,7 @@ describe('galleryUtils', () => {
         artist: 'a1',
         detail: 'd1',
         createdAt: 1000,
+        frameSeed: [0, 0, 0, 0, 0, 0, 0, 0],
       })
 
       expect(items[1]).toMatchObject({
@@ -81,6 +84,7 @@ describe('galleryUtils', () => {
         artist: 'a2',
         detail: 'd2',
         createdAt: 2000,
+        frameSeed: [0, 0, 0, 0, 0, 0, 0, 0],
       })
     })
 
@@ -101,6 +105,7 @@ describe('galleryUtils', () => {
             artist: 'a1',
             detail: 'd1',
             createdAt: 3000, // 3番目
+            frameSeed: [0, 0, 0, 0, 0, 0, 0, 0],
           }),
         ],
         [
@@ -112,6 +117,7 @@ describe('galleryUtils', () => {
             artist: 'a2',
             detail: 'd2',
             createdAt: 1000, // 1番目
+            frameSeed: [0, 0, 0, 0, 0, 0, 0, 0],
           }),
         ],
         [
@@ -123,6 +129,7 @@ describe('galleryUtils', () => {
             artist: 'a3',
             detail: 'd3',
             createdAt: 2000, // 2番目
+            frameSeed: [0, 0, 0, 0, 0, 0, 0, 0],
           }),
         ],
       ])
@@ -149,6 +156,7 @@ describe('galleryUtils', () => {
         artist: 'a1',
         detail: 'd1',
         createdAt: 1000,
+        frameSeed: [0, 0, 0, 0, 0, 0, 0, 0],
       }
       await galleryUtils.deleteItem(sakuhin)
       expect(mockedFileSystem.deleteAsync).toHaveBeenCalledWith('uri1', { idempotent: true })
@@ -169,6 +177,7 @@ describe('galleryUtils', () => {
         artist: 'a1',
         detail: 'd1',
         createdAt: 1000,
+        frameSeed: [0, 0, 0, 0, 0, 0, 0, 0],
       }
       await expect(galleryUtils.deleteItem(sakuhin)).rejects.toThrow('さくひんのさくじょにしっぱいしました')
     })
