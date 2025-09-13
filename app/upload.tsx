@@ -44,7 +44,7 @@ export default function Page() {
   }
 
   const sakuhinUploadHandler = async () => {
-    uploadItem(imageUri || '', title, artist, detail, frameType)
+    uploadItem(imageUri || '', title, artist, detail, frameType, randomSeed)
       .then(() => {
         setUploadResult('ぎゃらりーにとうこうしました')
         setSakuhinUploadResultModalVisible(true)

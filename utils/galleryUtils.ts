@@ -68,6 +68,7 @@ export const uploadItem = async (
   artist: string,
   detail: string,
   frameType: 'square' | 'rectangle' | null,
+  randomSeed: FrameSeed,
 ): Promise<void> => {
   if (!uri || !title || !artist || !detail || !frameType) {
     throw new Error('すべてのこうもくをにゅうりょくしてください')
@@ -90,7 +91,7 @@ export const uploadItem = async (
     frameType,
     uri: destinationUri,
     createdAt: Date.now(),
-    frameSeed: getFrameSeed(),
+    frameSeed: randomSeed,
   }
 
   try {

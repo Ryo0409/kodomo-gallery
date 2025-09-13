@@ -185,7 +185,7 @@ describe('galleryUtils', () => {
 
   describe('uploadItem', () => {
     it('作品投稿 引数エラーハンドリング', async () => {
-      await expect(galleryUtils.uploadItem('', '', '', '', null)).rejects.toThrow(
+      await expect(galleryUtils.uploadItem('', '', '', '', null, [0, 0, 0, 0, 0, 0, 0, 0])).rejects.toThrow(
         'すべてのこうもくをにゅうりょくしてください',
       )
     })
@@ -194,7 +194,7 @@ describe('galleryUtils', () => {
       const currentTime = Date.now()
       jest.spyOn(Date, 'now').mockReturnValue(currentTime)
 
-      await galleryUtils.uploadItem('file:///test.png', 't1', 'a1', 'd1', 'square')
+      await galleryUtils.uploadItem('file:///test.png', 't1', 'a1', 'd1', 'square', [0, 0, 0, 0, 0, 0, 0, 0])
 
       expect(mockedFileSystem.copyAsync).toHaveBeenCalled()
       expect(mockedAsyncStorage.setItem).toHaveBeenCalled()
@@ -213,17 +213,17 @@ describe('galleryUtils', () => {
 
     it('作品投稿 FileSystem.copyAsyncのエラーハンドリング', async () => {
       mockedFileSystem.copyAsync.mockRejectedValue(new Error('fail'))
-      await expect(galleryUtils.uploadItem('file:///test.png', 't1', 'a1', 'd1', 'square')).rejects.toThrow(
-        'さくひんのほぞんにしっぱいしました',
-      )
+      await expect(
+        galleryUtils.uploadItem('file:///test.png', 't1', 'a1', 'd1', 'square', [0, 0, 0, 0, 0, 0, 0, 0]),
+      ).rejects.toThrow('さくひんのほぞんにしっぱいしました')
     })
 
     it('作品投稿 AsyncStorage.setItemのエラーハンドリング', async () => {
       mockedFileSystem.copyAsync.mockResolvedValue(undefined)
       mockedAsyncStorage.setItem.mockRejectedValue(new Error('fail'))
-      await expect(galleryUtils.uploadItem('file:///test.png', 't1', 'a1', 'd1', 'square')).rejects.toThrow(
-        'ぎゃらりーへのとうこうにしっぱいしました',
-      )
+      await expect(
+        galleryUtils.uploadItem('file:///test.png', 't1', 'a1', 'd1', 'square', [0, 0, 0, 0, 0, 0, 0, 0]),
+      ).rejects.toThrow('ぎゃらりーへのとうこうにしっぱいしました')
     })
   })
 

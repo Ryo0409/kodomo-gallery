@@ -188,6 +188,7 @@ describe('Upload Page', () => {
       'テストアーティスト',
       'テスト詳細',
       'square',
+      [0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5],
     )
   })
 
@@ -213,7 +214,14 @@ describe('Upload Page', () => {
     })
 
     // uploadItemが空の画像URIで呼ばれることを確認
-    expect(mockedUploadItem).toHaveBeenCalledWith('', 'テストタイトル', 'テストアーティスト', 'テスト詳細', null)
+    expect(mockedUploadItem).toHaveBeenCalledWith(
+      '',
+      'テストタイトル',
+      'テストアーティスト',
+      'テスト詳細',
+      null,
+      [0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5],
+    )
   })
 
   it('uploadページ メッセージモーダルを閉じる', async () => {
