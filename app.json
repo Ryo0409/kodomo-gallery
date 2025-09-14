@@ -12,7 +12,8 @@
       "supportsTablet": false,
       "bundleIdentifier": "com.ryohatada.kodomogallery",
       "infoPlist": {
-        "ITSAppUsesNonExemptEncryption": false
+        "ITSAppUsesNonExemptEncryption": false,
+        "NSPhotoLibraryUsageDescription": "さくひんのほぞんのためにふぉとライブラリへのあくせすがひつようです。"
       }
     },
     "plugins": [
