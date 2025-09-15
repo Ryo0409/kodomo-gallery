@@ -6,29 +6,30 @@
 
 ## リリース情報
 
-- 2025年9月、App Store にて公開予定 ✨
+2025年9月、App Store にて公開予定 ✨
 
 ## お問い合わせ
 
-- [こちらのフォーム](https://forms.gle/XAD1SJxnznsubfnE8)から、お問い合わせをお願いいたします🙇‍♀️
+[こちらのフォーム](https://forms.gle/XAD1SJxnznsubfnE8)から、お問い合わせをお願いいたします🙇‍♀️
 
 ## プライバシーポリシー
 
 ### アプリケーションが取得する情報とその利用方法
 
-- アプリケーションは、ダウンロードおよび利用時に一切の情報を取得しません。利用にあたり登録も不要です。
+アプリケーションは、ダウンロードおよび利用時に一切の情報を取得しません。<br>
+利用にあたり登録も不要です。
 
 ### 位置情報の収集について
 
-- アプリケーションは、モバイルデバイスの正確な位置情報を収集しません。
+アプリケーションは、モバイルデバイスの正確な位置情報を収集しません。
 
 ### 第三者による情報アクセスについて
 
-- アプリケーションは情報を収集しないため、第三者と共有されるデータはありません。
+アプリケーションは情報を収集しないため、第三者と共有されるデータはありません。
 
 ## 関連リソース
 
-- [X (Twitter) アカウント](https://x.com/GalleryKod26425)
+[X (Twitter) アカウント](https://x.com/GalleryKod26425)
 
 # kodomo-gallery
 
@@ -48,7 +49,8 @@ Add a touch of fun with colorful, rounded frames that make every masterpiece shi
 
 ### Information Collected and How It Is Used
 
-The Application does not collect any information when downloaded or used. No registration is required to use the Application.
+The Application does not collect any information when downloaded or used. <br>
+No registration is required to use the Application.
 
 ### Location Information
 
@@ -60,4 +62,4 @@ Since the Application does not collect any information, no data is shared with t
 
 ## Related Resources
 
-- [X (Twitter) account](https://x.com/GalleryKod26425)
+[X (Twitter) account](https://x.com/GalleryKod26425)
