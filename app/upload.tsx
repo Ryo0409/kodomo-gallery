@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import 'react-native-get-random-values'
+import { ScrollView } from 'react-native'
 import { XStack, YStack, Input, Paragraph, Button } from 'tamagui'
 
 import { uploadItem, pickItemImage, getFrameSeed } from '../utils/galleryUtils'
@@ -57,8 +58,11 @@ export default function Page() {
   }
 
   return (
-    <YStack $maxMd={{ width: '100%' }} backgroundColor={'$background'} flex={1} paddingTop={50}>
-      <YStack mx="$4" my="$2" alignItems="center">
+    <ScrollView
+      style={{ flex: 1, backgroundColor: '$background' }}
+      contentContainerStyle={{ paddingTop: 50, paddingBottom: 50 }}
+    >
+      <YStack marginHorizontal="$4" marginVertical="$2" alignItems="center">
         <RandomPaperBackground
           randomSeed={randomSeed}
           paddingVertical={70}
@@ -90,25 +94,25 @@ export default function Page() {
           )}
         </RandomPaperBackground>
       </YStack>
-      <YStack mx="$4" mt="$2">
+      <YStack marginHorizontal="$4" marginTop="$2">
         <Paragraph testID="upload-title-input-label" fontWeight="800">
           さくひんめい
         </Paragraph>
         <Input testID="upload-title-input" size="$5" id="title" value={title} onChangeText={setTitle} />
       </YStack>
-      <YStack mx="$4" my="$2">
+      <YStack marginHorizontal="$4" marginVertical="$2">
         <Paragraph testID="upload-artist-input-label" fontWeight="800">
           さくしゃ
         </Paragraph>
         <Input testID="upload-artist-input" size="$5" id="artist" value={artist} onChangeText={setArtist} />
       </YStack>
-      <YStack mx="$4" mt="$2">
+      <YStack marginHorizontal="$4" marginTop="$2">
         <Paragraph testID="upload-detail-input-label" fontWeight="800">
           かいせつ
         </Paragraph>
         <Input testID="upload-detail-input" size="$5" id="detail" value={detail} onChangeText={setDetail} />
       </YStack>
-      <XStack mx="$4" mt="$4" justifyContent="space-around" alignItems="center">
+      <XStack marginHorizontal="$4" marginTop="$4" justifyContent="space-around" alignItems="center">
         <Button testID="upload-upload-button" theme="accent" size="$4" fontWeight="800" onPress={sakuhinUploadHandler}>
           とうこう
         </Button>
@@ -132,6 +136,6 @@ export default function Page() {
           setSakuhinUploadResultModalVisible(false)
         }}
       />
-    </YStack>
+    </ScrollView>
   )
 }
