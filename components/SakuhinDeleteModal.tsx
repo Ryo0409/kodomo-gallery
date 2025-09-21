@@ -1,3 +1,4 @@
+import { Dimensions } from 'react-native'
 import { Dialog, DialogClose, YStack, Button, Paragraph } from 'tamagui'
 
 import RandomPaperBackground from '@/components/RandomPaperBackground'
@@ -12,6 +13,7 @@ type Props = {
 }
 
 export default function SakuhinDeleteModal({ visible, sakuhin, onClose, deleteFunc }: Props) {
+  const windowWidth = Dimensions.get('window').width
   return (
     <Dialog
       modal
@@ -42,7 +44,11 @@ export default function SakuhinDeleteModal({ visible, sakuhin, onClose, deleteFu
                 marginVertical={0}
                 marginHorizontal={0}
               >
-                <SakuhinImage imageUri={sakuhin?.uri} frameType={sakuhin?.frameType} />
+                <SakuhinImage
+                  imageUri={sakuhin?.uri}
+                  width={windowWidth * 0.6}
+                  height={sakuhin?.frameType === 'square' ? windowWidth * 0.6 : windowWidth * 0.42}
+                />
               </RandomPaperBackground>
             </YStack>
             <DialogClose asChild>

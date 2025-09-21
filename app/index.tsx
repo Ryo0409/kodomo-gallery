@@ -1,6 +1,6 @@
 import { useFocusEffect } from '@react-navigation/native'
 import React, { useState, useCallback } from 'react'
-import { StyleSheet, FlatList } from 'react-native'
+import { StyleSheet, FlatList, Dimensions } from 'react-native'
 import { YStack, Paragraph } from 'tamagui'
 
 import { SakuhinInfo, getItems, deleteItem } from '../utils/galleryUtils'
@@ -12,6 +12,7 @@ import SakuhinImage from '@/components/SakuhinImage'
 import SakuhinInfoModal from '@/components/SakuhinInfoModal'
 
 export default function Page() {
+  const windowWidth = Dimensions.get('window').width
   const [myItems, setMyItems] = useState<SakuhinInfo[]>([])
   const [sakuhinInfoModalVisible, setSakuhinInfoModalVisible] = useState(false)
   const [sakuhinDeleteModalVisible, setSakuhinDeleteModalVisible] = useState(false)
@@ -64,7 +65,8 @@ export default function Page() {
               >
                 <SakuhinImage
                   imageUri={item.uri}
-                  frameType={item.frameType}
+                  width={windowWidth * 0.6}
+                  height={item.frameType === 'square' ? windowWidth * 0.6 : windowWidth * 0.42}
                   onPressFunc={() => {
                     setSelectedItem(item)
                     setSakuhinInfoModalVisible(true)
