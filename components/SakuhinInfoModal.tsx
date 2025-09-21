@@ -1,4 +1,5 @@
 import React from 'react'
+import { Dimensions } from 'react-native'
 import { Card, Dialog, DialogClose, YStack, Button, Paragraph, Separator, Text } from 'tamagui'
 
 import RandomPaperBackground from '@/components/RandomPaperBackground'
@@ -12,6 +13,7 @@ type Props = {
 }
 
 export default function SakuhinInfoModal({ visible, sakuhin, onClose }: Props) {
+  const windowWidth = Dimensions.get('window').width
   return (
     <Dialog
       modal
@@ -41,7 +43,11 @@ export default function SakuhinInfoModal({ visible, sakuhin, onClose }: Props) {
               marginVertical={0}
               marginHorizontal={0}
             >
-              <SakuhinImage imageUri={sakuhin?.uri} frameType={sakuhin?.frameType} />
+              <SakuhinImage
+                imageUri={sakuhin?.uri}
+                width={windowWidth * 0.6}
+                height={sakuhin?.frameType === 'square' ? windowWidth * 0.6 : windowWidth * 0.42}
+              />
             </RandomPaperBackground>
             <Card
               mt="$4"

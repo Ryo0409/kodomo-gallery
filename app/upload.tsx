@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import 'react-native-get-random-values'
-import { ScrollView } from 'react-native'
+import { ScrollView, Dimensions } from 'react-native'
 import { XStack, YStack, Input, Paragraph, Button } from 'tamagui'
 
 import { uploadItem, pickItemImage, getFrameSeed } from '../utils/galleryUtils'
@@ -11,6 +11,7 @@ import SakuhinImage from '@/components/SakuhinImage'
 import SakuhinImagePickModal from '@/components/SakuhinImagePickModal'
 
 export default function Page() {
+  const windowWidth = Dimensions.get('window').width
   const [imageUri, setImageUri] = useState<string | null>(null)
   const [title, setTitle] = useState('')
   const [artist, setArtist] = useState('')
@@ -73,14 +74,15 @@ export default function Page() {
           {imageUri ? (
             <SakuhinImage
               imageUri={imageUri}
-              frameType={frameType}
+              width={windowWidth * 0.6}
+              height={frameType === 'square' ? windowWidth * 0.6 : windowWidth * 0.42}
               onPressFunc={() => setSakuhinImagePickModalVisible(true)}
             />
           ) : (
             <Button
               testID="upload-image-select-button"
-              width={250}
-              height={250}
+              width={windowWidth * 0.6}
+              height={windowWidth * 0.6}
               backgroundColor="#fff"
               borderRadius={16}
               borderWidth={1}

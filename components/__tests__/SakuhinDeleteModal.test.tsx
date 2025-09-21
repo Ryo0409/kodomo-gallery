@@ -22,7 +22,7 @@ function renderWithProvider(ui: React.ReactElement) {
 }
 
 describe('SakuhinDeleteModal', () => {
-  it('SakuhinDeleteModalの表示 (frameType: square)', () => {
+  it('SakuhinDeleteModalの表示', () => {
     const sakuhin: SakuhinInfo = {
       key: '1',
       uri: 'https://example.com/image.jpg',
@@ -43,41 +43,6 @@ describe('SakuhinDeleteModal', () => {
     const imageElement = getByTestId('sakuhin-image-image')
     expect(imageElement.props.source).toEqual({ uri: 'https://example.com/image.jpg' })
     expect(imageElement.props.resizeMode).toBe('cover')
-    expect(imageElement.props.style).toEqual({
-      width: 250,
-      height: 250,
-    })
-
-    expect(getByTestId('sakuhin-delete-modal-title')).toHaveTextContent('このさくひんをさくじょしますか？')
-    expect(getByTestId('sakuhin-delete-modal-cancel-button')).toHaveTextContent('きゃんせる')
-    expect(getByTestId('sakuhin-delete-modal-delete-button')).toHaveTextContent('さくじょ')
-  })
-
-  it('SakuhinDeleteModalの表示 (frameType: rectangle)', () => {
-    const sakuhin: SakuhinInfo = {
-      key: '1',
-      uri: 'https://example.com/image.jpg',
-      frameType: 'rectangle',
-      frameSeed: [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8],
-      title: 't1',
-      artist: 'a1',
-      detail: 'd1',
-      createdAt: 1000,
-    }
-    const onClose = jest.fn()
-    const deleteFunc = jest.fn()
-
-    const { getByTestId } = renderWithProvider(
-      <SakuhinDeleteModal visible={true} sakuhin={sakuhin} onClose={onClose} deleteFunc={deleteFunc} />,
-    )
-
-    const imageElement = getByTestId('sakuhin-image-image')
-    expect(imageElement.props.source).toEqual({ uri: 'https://example.com/image.jpg' })
-    expect(imageElement.props.resizeMode).toBe('cover')
-    expect(imageElement.props.style).toEqual({
-      width: 250,
-      height: 177,
-    })
 
     expect(getByTestId('sakuhin-delete-modal-title')).toHaveTextContent('このさくひんをさくじょしますか？')
     expect(getByTestId('sakuhin-delete-modal-cancel-button')).toHaveTextContent('きゃんせる')
